@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.233" timestamp="2023-05-25T12:53:53.972491" hostname="examplehost"><testcase classname="test_stages.test_sentinel" name="test_detections[DNS events related to mining pools (ASIM DNS Schema)]" time="0.000"><failure message="AssertionError: The name '_Im_Dns' does not refer to any known function.&#10;assert 1 == 0&#10; +  where 1 = len([{'issue': '_Im_Dns', 'message': &quot;The name '_Im_Dns' does not refer to any known function.&quot;, 'severity': 'Error'}])">detections = {'name': 'DNS events related to mining pools (ASIM DNS Schema)', 'query': 'let minersDomains=dynamic(["monerohash.com"...s': [{'issue': '_Im_Dns', 'message': "The name '_Im_Dns' does not refer to any known function.", 'severity': 'Error'}]}
+
+    def test_detections(detections):
+        messages = [result['message'] for result in detections['results']]
+&gt;       assert len(detections['results']) == 0, f'{"".join(messages)}'
+E       AssertionError: The name '_Im_Dns' does not refer to any known function.
+E       assert 1 == 0
+E        +  where 1 = len([{'issue': '_Im_Dns', 'message': "The name '_Im_Dns' does not refer to any known function.", 'severity': 'Error'}])
+
+test_stages/test_sentinel.py:3: AssertionError</failure></testcase><testcase classname="test_stages.test_sentinel" name="test_detections[SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)]" time="0.000"><failure message="AssertionError: The name 'imFileEvent' does not refer to any known table, tabular variable or function.&#10;assert 1 == 0&#10; +  where 1 = len([{'issue': 'imFileEvent', 'message': &quot;The name 'imFileEvent' does not refer to any known table, tabular variable or function.&quot;, 'severity': 'Error'}])">detections = {'name': 'SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)', 'query': 'let SunburstMD5=dynamic(["b91ce2...age': "The name 'imFileEvent' does not refer to any known table, tabular variable or function.", 'severity': 'Error'}]}
+
+    def test_detections(detections):
+        messages = [result['message'] for result in detections['results']]
+&gt;       assert len(detections['results']) == 0, f'{"".join(messages)}'
+E       AssertionError: The name 'imFileEvent' does not refer to any known table, tabular variable or function.
+E       assert 1 == 0
+E        +  where 1 = len([{'issue': 'imFileEvent', 'message': "The name 'imFileEvent' does not refer to any known table, tabular variable or function.", 'severity': 'Error'}])
+
+test_stages/test_sentinel.py:3: AssertionError</failure></testcase></testsuite></testsuites>
