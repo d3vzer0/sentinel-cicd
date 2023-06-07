@@ -20,7 +20,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      - name: Install dependencies
+        run: pip install prevalidate
+      - name: Validate content
+        run: prevalidate sentinel unittest ./Detections ./defaultschema
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action/composite@v2
         if: always()
